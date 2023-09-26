@@ -6,31 +6,18 @@
 %option noyywrap
 %%
 [ \t\n]           ;
-[0-9]+\.[0-9]+    { cout << "Found a float: " << yytext << endl; }
-[0-9]+            { cout << "Found an int: " << yytext << endl; }
-[a-zA-Z0-9]+      { cout << "Found a string: " << yytext << endl; }
-:                   { cout << "Found a symbol: " << yytext << endl; }
-;                   { cout << "Found a symbol: " << yytext << endl; }
-[                   { cout << "Found a symbol: " << yytext << endl; }
-]                   { cout << "Found a symbol: " << yytext << endl; }
-\{                   { cout << "Found a symbol: " << yytext << endl; }
-\}                   { cout << "Found a symbol: " << yytext << endl; }
-=                   { cout << "Found a symbol: " << yytext << endl; }
-'                   { cout << "Found a symbol: " << yytext << endl; }
--                   { cout << "Found a symbol: " << yytext << endl; }
-#                   { cout << "Found a symbol: " << yytext << endl; }
->                   { cout << "Found a symbol: " << yytext << endl; }
-<                   { cout << "Found a symbol: " << yytext << endl; }
-!                   { cout << "Found a symbol: " << yytext << endl; }
-@                   { cout << "Found a symbol: " << yytext << endl; }
-_                   { cout << "Found a symbol: " << yytext << endl; }
-\*                   { cout << "Found a symbol: " << yytext << endl; }
-/\*.*\*/                   { cout << "Found a comment: " << yytext << endl; }
+[a-zA-Z0-9-]+:[ ].+;    { cout << "Found an ATTRIBUTE: " << yytext << endl; }
+([#.]|::|:)?[a-zA-Z0-9\-_*>]+((::?.*)|(\[.*\]))?,?    { cout << "Found a SELECTOR: " << yytext << endl; }
+@media            { cout << "Found a MEDIA: " << yytext << endl; }
+\(.*\)              { cout << "Found a MEDIA_QUERY: " << yytext << endl; }
+\{                 { cout << "Found a OPEN_CURLY: " << yytext << endl; }
+\}                 { cout << "Found a CLOSE_CURLY: " << yytext << endl; }
+[/][*].*[*][/]                 { cout << "Found a COMMENT: " << yytext << endl; }
 %%
 int main(int, char**) {
   
   // open a file handle to a particular file:
-  FILE *myfile = fopen("shortTest.css", "r");
+  FILE *myfile = fopen("sample-css-input.css", "r");
   // make sure it's valid:
   if (!myfile) {
     cout << "Error reading file" << endl;

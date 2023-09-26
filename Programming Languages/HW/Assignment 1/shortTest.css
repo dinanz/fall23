@@ -1,38 +1,55 @@
-audio,
-canvas,
-video {
-  display: inline-block;
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='email']:focus,
+textarea:focus {
+  /* box-shadow: inset 2px 3px 3px rgba(0, 0, 0, 0.1); */
+  box-shadow: none;
+  outline: none;
 }
 
-/* prevents modern browsers from displaying 'audio' without controls */
-audio:not([controls]) {
-  display: none;
+input[type='password'] {
+  letter-spacing: 3px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+input[type='search'] {
+  /* appearance in safari/chrome */
+  box-sizing: content-box;
 }
 
-figure {
+::-ms-clear {
+  display: none; /* removes clear icon ie10 adds to text inputs on focus */
+}
+
+/* using modernizr - some browsers will show a broken image icon if they dont support svg so lets hide them */
+.hasNoSvg img[src *= '.svg'] {
+  /* performance ? */
+  display: none !important;
+}
+
+html,
+body,
+main {
+  height: 100%;
   margin: 0;
 }
 
-img {
-  height: auto;
-  max-width: 100%;
-  -ms-interpolation-mode: bicubic;
+html {
+  font: -apple-system-body;
+  font-size: 100%;
 }
 
-.image > img {
-  display: block;
+body {
+  overflow-x: hidden;
 }
 
-a img {
-  border: none;
+.NYTApp .NYTAppHideMasthead {
+  display: none;
 }
 
-a {
-  text-decoration: none;
-  color: black;
+@media (max-width: 1040px) {
+  .ReactModal__Body--open {
+    overflow: hidden;
+  }
 }
+
+/* Print styles */
