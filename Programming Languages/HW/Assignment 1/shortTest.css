@@ -1,0 +1,38 @@
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/* prevents modern browsers from displaying 'audio' without controls */
+audio:not([controls]) {
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  -ms-interpolation-mode: bicubic;
+}
+
+.image > img {
+  display: block;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
