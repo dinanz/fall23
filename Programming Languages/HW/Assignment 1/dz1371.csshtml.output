@@ -1,0 +1,736 @@
+Terminals unused in grammar
+
+   SELECTOR5
+
+
+Grammar
+
+    0 $accept: s $end
+
+    1 s: html
+    2  | css
+
+    3 html: DOCTYPE START_HTML html_blocks START_BODY html_blocks END_BODY html_blocks END_HTML
+
+    4 html_blocks: html_block html_blocks
+    5            | html_block
+
+    6 html_block: INDEPENDENT_TAG
+    7           | script
+    8           | START_TAG html_blocks END_TAG
+    9           | START_TAG END_TAG
+
+   10 script: START_SCRIPT ignore END_SCRIPT
+   11       | START_SCRIPT END_SCRIPT
+
+   12 ignore: string_terminal ignore
+   13       | string_terminal
+
+   14 string_terminal: STRING
+   15                | COMMA
+   16                | COLON
+   17                | SEMICOLON
+   18                | OPEN_CURLY
+   19                | CLOSE_CURLY
+   20                | COMMENT
+
+   21 css: css_blocks
+
+   22 css_blocks: css_block css_blocks
+   23           | css_block
+
+   24 css_block: media_query
+   25          | selector_block
+   26          | COMMENT
+
+   27 selector_block: selectors OPEN_CURLY attributes CLOSE_CURLY
+
+   28 selectors: selector COMMA selectors
+   29          | selector selectors
+   30          | selector
+
+   31 selector: SELECTOR1
+   32         | SELECTOR2
+   33         | SELECTOR3
+   34         | SELECTOR4
+
+   35 attributes: attribute attributes
+   36           | attribute
+
+   37 attribute: property COLON values SEMICOLON
+   38          | COMMENT
+
+   39 property: STRING
+
+   40 values: values STRING
+   41       | STRING
+
+   42 media_query: AT_MEDIA OPEN_CURLY css_blocks CLOSE_CURLY
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+START_TAG (258) 8 9
+END_TAG (259) 8 9
+INDEPENDENT_TAG (260) 6
+START_HTML (261) 3
+END_HTML (262) 3
+START_BODY (263) 3
+END_BODY (264) 3
+START_SCRIPT (265) 10 11
+END_SCRIPT (266) 10 11
+OPEN_CURLY (267) 18 27 42
+CLOSE_CURLY (268) 19 27 42
+COMMA (269) 15 28
+COLON (270) 16 37
+SEMICOLON (271) 17 37
+STRING (272) 14 39 40 41
+COMMENT (273) 20 26 38
+SELECTOR1 (274) 31
+SELECTOR2 (275) 32
+SELECTOR3 (276) 33
+SELECTOR4 (277) 34
+SELECTOR5 (278)
+AT_MEDIA (279) 42
+DOCTYPE (280) 3
+
+
+Nonterminals, with rules where they appear
+
+$accept (26)
+    on left: 0
+s (27)
+    on left: 1 2, on right: 0
+html (28)
+    on left: 3, on right: 1
+html_blocks (29)
+    on left: 4 5, on right: 3 4 8
+html_block (30)
+    on left: 6 7 8 9, on right: 4 5
+script (31)
+    on left: 10 11, on right: 7
+ignore (32)
+    on left: 12 13, on right: 10 12
+string_terminal (33)
+    on left: 14 15 16 17 18 19 20, on right: 12 13
+css (34)
+    on left: 21, on right: 2
+css_blocks (35)
+    on left: 22 23, on right: 21 22 42
+css_block (36)
+    on left: 24 25 26, on right: 22 23
+selector_block (37)
+    on left: 27, on right: 25
+selectors (38)
+    on left: 28 29 30, on right: 27 28 29
+selector (39)
+    on left: 31 32 33 34, on right: 28 29 30
+attributes (40)
+    on left: 35 36, on right: 27 35
+attribute (41)
+    on left: 37 38, on right: 35 36
+property (42)
+    on left: 39, on right: 37
+values (43)
+    on left: 40 41, on right: 37 40
+media_query (44)
+    on left: 42, on right: 24
+
+
+state 0
+
+    0 $accept: . s $end
+
+    COMMENT    shift, and go to state 1
+    SELECTOR1  shift, and go to state 2
+    SELECTOR2  shift, and go to state 3
+    SELECTOR3  shift, and go to state 4
+    SELECTOR4  shift, and go to state 5
+    AT_MEDIA   shift, and go to state 6
+    DOCTYPE    shift, and go to state 7
+
+    s               go to state 8
+    html            go to state 9
+    css             go to state 10
+    css_blocks      go to state 11
+    css_block       go to state 12
+    selector_block  go to state 13
+    selectors       go to state 14
+    selector        go to state 15
+    media_query     go to state 16
+
+
+state 1
+
+   26 css_block: COMMENT .
+
+    $default  reduce using rule 26 (css_block)
+
+
+state 2
+
+   31 selector: SELECTOR1 .
+
+    $default  reduce using rule 31 (selector)
+
+
+state 3
+
+   32 selector: SELECTOR2 .
+
+    $default  reduce using rule 32 (selector)
+
+
+state 4
+
+   33 selector: SELECTOR3 .
+
+    $default  reduce using rule 33 (selector)
+
+
+state 5
+
+   34 selector: SELECTOR4 .
+
+    $default  reduce using rule 34 (selector)
+
+
+state 6
+
+   42 media_query: AT_MEDIA . OPEN_CURLY css_blocks CLOSE_CURLY
+
+    OPEN_CURLY  shift, and go to state 17
+
+
+state 7
+
+    3 html: DOCTYPE . START_HTML html_blocks START_BODY html_blocks END_BODY html_blocks END_HTML
+
+    START_HTML  shift, and go to state 18
+
+
+state 8
+
+    0 $accept: s . $end
+
+    $end  shift, and go to state 19
+
+
+state 9
+
+    1 s: html .
+
+    $default  reduce using rule 1 (s)
+
+
+state 10
+
+    2 s: css .
+
+    $default  reduce using rule 2 (s)
+
+
+state 11
+
+   21 css: css_blocks .
+
+    $default  reduce using rule 21 (css)
+
+
+state 12
+
+   22 css_blocks: css_block . css_blocks
+   23           | css_block .
+
+    COMMENT    shift, and go to state 1
+    SELECTOR1  shift, and go to state 2
+    SELECTOR2  shift, and go to state 3
+    SELECTOR3  shift, and go to state 4
+    SELECTOR4  shift, and go to state 5
+    AT_MEDIA   shift, and go to state 6
+
+    $default  reduce using rule 23 (css_blocks)
+
+    css_blocks      go to state 20
+    css_block       go to state 12
+    selector_block  go to state 13
+    selectors       go to state 14
+    selector        go to state 15
+    media_query     go to state 16
+
+
+state 13
+
+   25 css_block: selector_block .
+
+    $default  reduce using rule 25 (css_block)
+
+
+state 14
+
+   27 selector_block: selectors . OPEN_CURLY attributes CLOSE_CURLY
+
+    OPEN_CURLY  shift, and go to state 21
+
+
+state 15
+
+   28 selectors: selector . COMMA selectors
+   29          | selector . selectors
+   30          | selector .
+
+    COMMA      shift, and go to state 22
+    SELECTOR1  shift, and go to state 2
+    SELECTOR2  shift, and go to state 3
+    SELECTOR3  shift, and go to state 4
+    SELECTOR4  shift, and go to state 5
+
+    $default  reduce using rule 30 (selectors)
+
+    selectors  go to state 23
+    selector   go to state 15
+
+
+state 16
+
+   24 css_block: media_query .
+
+    $default  reduce using rule 24 (css_block)
+
+
+state 17
+
+   42 media_query: AT_MEDIA OPEN_CURLY . css_blocks CLOSE_CURLY
+
+    COMMENT    shift, and go to state 1
+    SELECTOR1  shift, and go to state 2
+    SELECTOR2  shift, and go to state 3
+    SELECTOR3  shift, and go to state 4
+    SELECTOR4  shift, and go to state 5
+    AT_MEDIA   shift, and go to state 6
+
+    css_blocks      go to state 24
+    css_block       go to state 12
+    selector_block  go to state 13
+    selectors       go to state 14
+    selector        go to state 15
+    media_query     go to state 16
+
+
+state 18
+
+    3 html: DOCTYPE START_HTML . html_blocks START_BODY html_blocks END_BODY html_blocks END_HTML
+
+    START_TAG        shift, and go to state 25
+    INDEPENDENT_TAG  shift, and go to state 26
+    START_SCRIPT     shift, and go to state 27
+
+    html_blocks  go to state 28
+    html_block   go to state 29
+    script       go to state 30
+
+
+state 19
+
+    0 $accept: s $end .
+
+    $default  accept
+
+
+state 20
+
+   22 css_blocks: css_block css_blocks .
+
+    $default  reduce using rule 22 (css_blocks)
+
+
+state 21
+
+   27 selector_block: selectors OPEN_CURLY . attributes CLOSE_CURLY
+
+    STRING   shift, and go to state 31
+    COMMENT  shift, and go to state 32
+
+    attributes  go to state 33
+    attribute   go to state 34
+    property    go to state 35
+
+
+state 22
+
+   28 selectors: selector COMMA . selectors
+
+    SELECTOR1  shift, and go to state 2
+    SELECTOR2  shift, and go to state 3
+    SELECTOR3  shift, and go to state 4
+    SELECTOR4  shift, and go to state 5
+
+    selectors  go to state 36
+    selector   go to state 15
+
+
+state 23
+
+   29 selectors: selector selectors .
+
+    $default  reduce using rule 29 (selectors)
+
+
+state 24
+
+   42 media_query: AT_MEDIA OPEN_CURLY css_blocks . CLOSE_CURLY
+
+    CLOSE_CURLY  shift, and go to state 37
+
+
+state 25
+
+    8 html_block: START_TAG . html_blocks END_TAG
+    9           | START_TAG . END_TAG
+
+    START_TAG        shift, and go to state 25
+    END_TAG          shift, and go to state 38
+    INDEPENDENT_TAG  shift, and go to state 26
+    START_SCRIPT     shift, and go to state 27
+
+    html_blocks  go to state 39
+    html_block   go to state 29
+    script       go to state 30
+
+
+state 26
+
+    6 html_block: INDEPENDENT_TAG .
+
+    $default  reduce using rule 6 (html_block)
+
+
+state 27
+
+   10 script: START_SCRIPT . ignore END_SCRIPT
+   11       | START_SCRIPT . END_SCRIPT
+
+    END_SCRIPT   shift, and go to state 40
+    OPEN_CURLY   shift, and go to state 41
+    CLOSE_CURLY  shift, and go to state 42
+    COMMA        shift, and go to state 43
+    COLON        shift, and go to state 44
+    SEMICOLON    shift, and go to state 45
+    STRING       shift, and go to state 46
+    COMMENT      shift, and go to state 47
+
+    ignore           go to state 48
+    string_terminal  go to state 49
+
+
+state 28
+
+    3 html: DOCTYPE START_HTML html_blocks . START_BODY html_blocks END_BODY html_blocks END_HTML
+
+    START_BODY  shift, and go to state 50
+
+
+state 29
+
+    4 html_blocks: html_block . html_blocks
+    5            | html_block .
+
+    START_TAG        shift, and go to state 25
+    INDEPENDENT_TAG  shift, and go to state 26
+    START_SCRIPT     shift, and go to state 27
+
+    $default  reduce using rule 5 (html_blocks)
+
+    html_blocks  go to state 51
+    html_block   go to state 29
+    script       go to state 30
+
+
+state 30
+
+    7 html_block: script .
+
+    $default  reduce using rule 7 (html_block)
+
+
+state 31
+
+   39 property: STRING .
+
+    $default  reduce using rule 39 (property)
+
+
+state 32
+
+   38 attribute: COMMENT .
+
+    $default  reduce using rule 38 (attribute)
+
+
+state 33
+
+   27 selector_block: selectors OPEN_CURLY attributes . CLOSE_CURLY
+
+    CLOSE_CURLY  shift, and go to state 52
+
+
+state 34
+
+   35 attributes: attribute . attributes
+   36           | attribute .
+
+    STRING   shift, and go to state 31
+    COMMENT  shift, and go to state 32
+
+    $default  reduce using rule 36 (attributes)
+
+    attributes  go to state 53
+    attribute   go to state 34
+    property    go to state 35
+
+
+state 35
+
+   37 attribute: property . COLON values SEMICOLON
+
+    COLON  shift, and go to state 54
+
+
+state 36
+
+   28 selectors: selector COMMA selectors .
+
+    $default  reduce using rule 28 (selectors)
+
+
+state 37
+
+   42 media_query: AT_MEDIA OPEN_CURLY css_blocks CLOSE_CURLY .
+
+    $default  reduce using rule 42 (media_query)
+
+
+state 38
+
+    9 html_block: START_TAG END_TAG .
+
+    $default  reduce using rule 9 (html_block)
+
+
+state 39
+
+    8 html_block: START_TAG html_blocks . END_TAG
+
+    END_TAG  shift, and go to state 55
+
+
+state 40
+
+   11 script: START_SCRIPT END_SCRIPT .
+
+    $default  reduce using rule 11 (script)
+
+
+state 41
+
+   18 string_terminal: OPEN_CURLY .
+
+    $default  reduce using rule 18 (string_terminal)
+
+
+state 42
+
+   19 string_terminal: CLOSE_CURLY .
+
+    $default  reduce using rule 19 (string_terminal)
+
+
+state 43
+
+   15 string_terminal: COMMA .
+
+    $default  reduce using rule 15 (string_terminal)
+
+
+state 44
+
+   16 string_terminal: COLON .
+
+    $default  reduce using rule 16 (string_terminal)
+
+
+state 45
+
+   17 string_terminal: SEMICOLON .
+
+    $default  reduce using rule 17 (string_terminal)
+
+
+state 46
+
+   14 string_terminal: STRING .
+
+    $default  reduce using rule 14 (string_terminal)
+
+
+state 47
+
+   20 string_terminal: COMMENT .
+
+    $default  reduce using rule 20 (string_terminal)
+
+
+state 48
+
+   10 script: START_SCRIPT ignore . END_SCRIPT
+
+    END_SCRIPT  shift, and go to state 56
+
+
+state 49
+
+   12 ignore: string_terminal . ignore
+   13       | string_terminal .
+
+    OPEN_CURLY   shift, and go to state 41
+    CLOSE_CURLY  shift, and go to state 42
+    COMMA        shift, and go to state 43
+    COLON        shift, and go to state 44
+    SEMICOLON    shift, and go to state 45
+    STRING       shift, and go to state 46
+    COMMENT      shift, and go to state 47
+
+    $default  reduce using rule 13 (ignore)
+
+    ignore           go to state 57
+    string_terminal  go to state 49
+
+
+state 50
+
+    3 html: DOCTYPE START_HTML html_blocks START_BODY . html_blocks END_BODY html_blocks END_HTML
+
+    START_TAG        shift, and go to state 25
+    INDEPENDENT_TAG  shift, and go to state 26
+    START_SCRIPT     shift, and go to state 27
+
+    html_blocks  go to state 58
+    html_block   go to state 29
+    script       go to state 30
+
+
+state 51
+
+    4 html_blocks: html_block html_blocks .
+
+    $default  reduce using rule 4 (html_blocks)
+
+
+state 52
+
+   27 selector_block: selectors OPEN_CURLY attributes CLOSE_CURLY .
+
+    $default  reduce using rule 27 (selector_block)
+
+
+state 53
+
+   35 attributes: attribute attributes .
+
+    $default  reduce using rule 35 (attributes)
+
+
+state 54
+
+   37 attribute: property COLON . values SEMICOLON
+
+    STRING  shift, and go to state 59
+
+    values  go to state 60
+
+
+state 55
+
+    8 html_block: START_TAG html_blocks END_TAG .
+
+    $default  reduce using rule 8 (html_block)
+
+
+state 56
+
+   10 script: START_SCRIPT ignore END_SCRIPT .
+
+    $default  reduce using rule 10 (script)
+
+
+state 57
+
+   12 ignore: string_terminal ignore .
+
+    $default  reduce using rule 12 (ignore)
+
+
+state 58
+
+    3 html: DOCTYPE START_HTML html_blocks START_BODY html_blocks . END_BODY html_blocks END_HTML
+
+    END_BODY  shift, and go to state 61
+
+
+state 59
+
+   41 values: STRING .
+
+    $default  reduce using rule 41 (values)
+
+
+state 60
+
+   37 attribute: property COLON values . SEMICOLON
+   40 values: values . STRING
+
+    SEMICOLON  shift, and go to state 62
+    STRING     shift, and go to state 63
+
+
+state 61
+
+    3 html: DOCTYPE START_HTML html_blocks START_BODY html_blocks END_BODY . html_blocks END_HTML
+
+    START_TAG        shift, and go to state 25
+    INDEPENDENT_TAG  shift, and go to state 26
+    START_SCRIPT     shift, and go to state 27
+
+    html_blocks  go to state 64
+    html_block   go to state 29
+    script       go to state 30
+
+
+state 62
+
+   37 attribute: property COLON values SEMICOLON .
+
+    $default  reduce using rule 37 (attribute)
+
+
+state 63
+
+   40 values: values STRING .
+
+    $default  reduce using rule 40 (values)
+
+
+state 64
+
+    3 html: DOCTYPE START_HTML html_blocks START_BODY html_blocks END_BODY html_blocks . END_HTML
+
+    END_HTML  shift, and go to state 65
+
+
+state 65
+
+    3 html: DOCTYPE START_HTML html_blocks START_BODY html_blocks END_BODY html_blocks END_HTML .
+
+    $default  reduce using rule 3 (html)

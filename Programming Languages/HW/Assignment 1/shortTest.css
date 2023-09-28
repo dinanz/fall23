@@ -1,3 +1,52 @@
+button,
+input,
+select {
+  vertical-align: middle;
+}
+
+button,
+input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border: none;
+  line-height: normal; /* ff3 and 4 have !important on line-height in ua stylesheet */
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  /* inner padding and border oddities in ff3/4 */
+  padding: 0;
+  border: 0;
+}
+
+button:-moz-focusring {
+  outline: 1px dotted; /* restores outline on focus moz bug 140562 */
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  cursor: pointer; /* cursors on all buttons applied consistently */
+  -webkit-appearance: button; /* style clickable inputs in ios */
+}
+
+textarea {
+  padding: 6px 10px;
+  overflow: auto; /* remove vertical scrollbar in ie6-9 */
+  vertical-align: top; /* readability and alignment cross-browser */
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+textarea {
+  border-radius: 3px;
+  box-sizing: border-box;
+  border: 0;
+}
+
 input[type='text']:focus,
 input[type='password']:focus,
 input[type='email']:focus,

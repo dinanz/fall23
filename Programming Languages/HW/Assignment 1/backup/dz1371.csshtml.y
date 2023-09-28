@@ -18,11 +18,11 @@
 }
 
 %start s
+%option yylineno
 
-%token <sval> DOCTYPE
-%token <sval> INDEPENDENT_TAG
 %token <sval> START_TAG
 %token <sval> END_TAG
+%token <sval> INDEPENDENT_TAG
 %token <sval> START_HTML
 %token <sval> END_HTML
 %token <sval> START_BODY
@@ -34,6 +34,7 @@
 %token <sval> COMMA
 %token <sval> COLON
 %token <sval> SEMICOLON
+%token <sval> STRING
 %token <sval> COMMENT
 %token <sval> SELECTOR1
 %token <sval> SELECTOR2
@@ -41,7 +42,7 @@
 %token <sval> SELECTOR4
 %token <sval> SELECTOR5
 %token <sval> AT_MEDIA
-%token <sval> STRING
+%token <sval> DOCTYPE
 
 
 %%
@@ -162,7 +163,7 @@ media_query:
 
 
 int main (int, char**){
-  FILE *myfile = fopen("shortTest.css", "r");
+  FILE *myfile = fopen("sample-css-input.css", "r");
   if (!myfile) {
     cout << "Error reading file" << endl;
     return -1;
