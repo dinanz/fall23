@@ -66,10 +66,10 @@ html_blocks :
     ;
 
 html_block:
-    INDEPENDENT_TAG 
-    | script 
-    | START_TAG inner_html END_TAG { if()}
+    START_TAG inner_html END_TAG
     | START_TAG END_TAG 
+    | INDEPENDENT_TAG 
+    | script 
     ;
   
 inner_html:
@@ -174,7 +174,7 @@ int main (int, char**){
     yydebug = 1;
   #endif
 
-  FILE *myfile = fopen("sample-html-input.html", "r");
+  FILE *myfile = fopen("shortTest.css", "r");
   if (!myfile) {
     cout << "Error reading file" << endl;
     return -1;

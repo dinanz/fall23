@@ -19,6 +19,7 @@
 [a-zA-Z0-9!@#$%-+=_]+:([ ]([a-zA-Z0-9!@#$%-+=_]+))+; { yylval.sval = strdup(yytext); return ATTRIBUTE;}
 
 
+
 (\.|#|:|::)[a-zA-Z0-9\-_*>]+    { yylval.sval = strdup(yytext); return SELECTOR1;}
 [a-zA-Z0-9\-_*>]+::[a-zA-Z0-9\-_*>]+    { yylval.sval = strdup(yytext); return SELECTOR2;}
 [.#(::)(:)][a-zA-Z0-9\-_*>]+\[.*\]      { yylval.sval = strdup(yytext); return SELECTOR3;}
@@ -33,7 +34,7 @@
 (<\/body>)                { yylval.sval = strdup(yytext); return END_BODY;}
 (<script)                { yylval.sval = strdup(yytext); return START_SCRIPT;}
 (<\/script)                { yylval.sval = strdup(yytext); return END_SCRIPT;}
-(<[a-zA-Z]+[^>]*>)        { yylval.sval = strdup(yytext); return START_TAG;}
+(<[a-zA-Z]+[^>^<]*>)        { yylval.sval = strdup(yytext); return START_TAG;}
 (<\/[a-zA-Z]+>)           { yylval.sval = strdup(yytext); return END_TAG;}
 
 

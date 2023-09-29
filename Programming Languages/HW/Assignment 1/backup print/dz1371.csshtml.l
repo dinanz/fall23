@@ -16,9 +16,6 @@
 
 @media[ ][^\{]+            { yylval.sval = strdup(yytext); return AT_MEDIA;}
 
-[a-zA-Z0-9!@#$%-+=_]+:([ ]([a-zA-Z0-9!@#$%-+=_]+))+; { yylval.sval = strdup(yytext); return ATTRIBUTE;}
-
-
 
 (\.|#|:|::)[a-zA-Z0-9\-_*>]+    { yylval.sval = strdup(yytext); return SELECTOR1;}
 [a-zA-Z0-9\-_*>]+::[a-zA-Z0-9\-_*>]+    { yylval.sval = strdup(yytext); return SELECTOR2;}

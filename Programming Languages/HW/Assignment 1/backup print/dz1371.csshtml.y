@@ -22,13 +22,6 @@
 
 %token <sval> DOCTYPE
 %token <sval> INDEPENDENT_TAG
-%token <sval> ATTRIBUTE
-%token <sval> OPEN_CURLY
-%token <sval> CLOSE_CURLY
-%token <sval> COMMA
-%token <sval> COLON
-%token <sval> SEMICOLON
-%token <sval> COMMENT
 %token <sval> START_HTML
 %token <sval> END_HTML
 %token <sval> START_BODY
@@ -37,6 +30,12 @@
 %token <sval> END_SCRIPT
 %token <sval> START_TAG
 %token <sval> END_TAG
+%token <sval> OPEN_CURLY
+%token <sval> CLOSE_CURLY
+%token <sval> COMMA
+%token <sval> COLON
+%token <sval> SEMICOLON
+%token <sval> COMMENT
 %token <sval> SELECTOR1
 %token <sval> SELECTOR2
 %token <sval> SELECTOR3
@@ -68,16 +67,11 @@ html_blocks :
 html_block:
     INDEPENDENT_TAG 
     | script 
-    | START_TAG inner_html END_TAG { if()}
+    | START_TAG html_blocks ignore END_TAG 
+    | START_TAG ignore html_blocks ignore END_TAG 
+    | START_TAG ignore html_blocks END_TAG 
+    | START_TAG ignore END_TAG 
     | START_TAG END_TAG 
-    ;
-  
-inner_html:
-    html_blocks
-    | html_blocks ignore
-    | ignore html_blocks
-    | ignore html_blocks ignore
-    | ignore
     ;
 
 
@@ -147,11 +141,23 @@ selector :
     ;
 
 attributes :
-    ATTRIBUTE attributes    { cout << "attribute attributes" << endl; }
-    | ATTRIBUTE             { cout << "attribute" << endl; }
+    attribute attributes    { cout << "attribute attributes" << endl; }
+    | attribute             { cout << "attribute" << endl; }
     ;
 
+attribute :
+    property COLON values SEMICOLON     { cout << "attribute" << endl; }
+    | COMMENT       { cout << "comment." << endl; }
+    ;
 
+property :
+    STRING          { cout << "property" << endl; }
+    ;
+
+values :
+    values STRING   { cout << "list of values." << endl; }
+    | STRING        { cout << "value" << endl; }
+    ;
   
 media_query:
     AT_MEDIA OPEN_CURLY css_blocks CLOSE_CURLY  { cout << "media query." << endl; }
@@ -174,7 +180,7 @@ int main (int, char**){
     yydebug = 1;
   #endif
 
-  FILE *myfile = fopen("sample-html-input.html", "r");
+  FILE *myfile = fopen("sample-css-input.css", "r");
   if (!myfile) {
     cout << "Error reading file" << endl;
     return -1;
@@ -190,6 +196,6 @@ int main (int, char**){
 
 
 void yyerror(const char *s){
-  cout << "Parse failed: " << s << endl;
+  cout << "Parse failed." << s << endl;
   exit(-1);
 }
