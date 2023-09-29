@@ -7,42 +7,42 @@
 %%
 [ \t]               ;
 
-,                       { cout << "Found a COMMA: " << yytext << endl; return COMMA;}
-:                       { cout << "Found a COLON: " << yytext << endl; return COLON;}
-;                       { cout << "Found a SEMICOLON: " << yytext << endl; return SEMICOLON;}
-\{                      { cout << "Found a OPEN_CURLY: " << yytext << endl; return OPEN_CURLY;}
-\}                      { cout << "Found a CLOSE_CURLY: " << yytext << endl; return CLOSE_CURLY;}
+,                       { cout << "Found a COMMA: " << yytext << endl; }
+:                       { cout << "Found a COLON: " << yytext << endl; }
+;                       { cout << "Found a SEMICOLON: " << yytext << endl; }
+\{                      { cout << "Found a OPEN_CURLY: " << yytext << endl; }
+\}                      { cout << "Found a CLOSE_CURLY: " << yytext << endl; }
 
-@media[ ][^\{]+                        { cout << "Found a AT_MEDIA: " << yytext << endl; return AT_MEDIA;}
+@media[ ][^\{]+                        { cout << "Found a AT_MEDIA: " << yytext << endl; }
 
-(\.|#|:|::)[a-zA-Z0-9\-_*>]+    { cout << "Found a SELECTOR1: " << yytext << endl; return SELECTOR1;}
-[a-zA-Z0-9\-_*>]+::[a-zA-Z0-9\-_*>]+    { cout << "Found a SELECTOR2: " << yytext << endl; return SELECTOR2;}
-[.#(::)(:)][a-zA-Z0-9\-_*>]+\[.*\]      { cout << "Found a SELECTOR3: " << yytext << endl; return SELECTOR3;}
-[a-zA-Z0-9\-_*>]+\[.*\]         { cout << "Found a SELECTOR4: " << yytext << endl; return SELECTOR4;}
-[a-zA-Z0-9\-_*>]+:[a-zA-Z0-9\-_*>()[]]+    { cout << "Found a SELECTOR5: " << yytext << endl; return SELECTOR5;}
+(\.|#|:|::)[a-zA-Z0-9\-_*>]+    { cout << "Found a SELECTOR1: " << yytext << endl; }
+[a-zA-Z0-9\-_*>]+::[a-zA-Z0-9\-_*>]+    { cout << "Found a SELECTOR2: " << yytext << endl;}
+[.#(::)(:)][a-zA-Z0-9\-_*>]+\[.*\]      { cout << "Found a SELECTOR3: " << yytext << endl; }
+[a-zA-Z0-9\-_*>]+\[.*\]         { cout << "Found a SELECTOR4: " << yytext << endl; }
+[a-zA-Z0-9\-_*>]+:[a-zA-Z0-9\-_*>()[]]+    { cout << "Found a SELECTOR5: " << yytext << endl; }
 
-(<\!DOCTYPE.*>)        { cout << "Found a DOCTYPE: " << yytext << endl; return DOCTYPE;}
-(<html>)                    { cout << "Found a START_HTML: " << yytext << endl;  return START_HTML;}
-(<\/html>)                  { cout << "Found a END_HTML: " << yytext << endl; return END_HTML;}
-(<body>)                  { cout << "Found a START_BODY: " << yytext << endl; return START_BODY;}
-(<\/body>)                { cout << "Found a END_BODY: " << yytext << endl; return END_BODY;}
-(<script)                { cout << "Found a START_SCRIPT: " << yytext << endl; return START_SCRIPT;}
-(<\/script)                { cout << "Found a END_SCRIPT: " << yytext << endl; return END_SCRIPT;}
-(<[a-zA-Z]+[^>]*\/>)        { cout << "Found an INDEPENDENT_TAG: " << yytext << endl; return INDEPENDENT_TAG;}
-(<[a-zA-Z]+[^>]*>)        { cout << "Found a START_TAG: " << yytext << endl; return START_TAG;}
-(<\/[a-zA-Z]+>)           { cout << "Found a END_TAG: " << yytext << endl; return END_TAG;}
+(<\!DOCTYPE[^>]*>)        { cout << "Found a DOCTYPE: " << yytext << endl; }
+(<[a-zA-Z]+[^>]*\/>)        { cout << "Found an INDEPENDENT_TAG: " << yytext << endl; }
+(<html>)                    { cout << "Found a START_HTML: " << yytext << endl; }
+(<\/html>)                  { cout << "Found a END_HTML: " << yytext << endl; }
+(<body>)                  { cout << "Found a START_BODY: " << yytext << endl; }
+(<\/body>)                { cout << "Found a END_BODY: " << yytext << endl; }
+(<script)                { cout << "Found a START_SCRIPT: " << yytext << endl; }
+(<\/script)                { cout << "Found a END_SCRIPT: " << yytext << endl; }
+(<[a-zA-Z]+[^>]*>)        { cout << "Found a START_TAG: " << yytext << endl; }
+(<\/[a-zA-Z]+>)           { cout << "Found a END_TAG: " << yytext << endl;}
 
 
-[/][*].*[*][/]          { cout << "Found a COMMENT: " << yytext << endl; return COMMENT;}
+[/][*].*[*][/]          { cout << "Found a COMMENT: " << yytext << endl;}
 
-[a-zA-Z0-9!@#$%-+=_]+   { cout << "Found a STRING: " << yytext << endl; return STRING;}
-\n                      { cout << "Found a ENDL: " << yytext << endl; return ENDL;};
+[a-zA-Z0-9!@#$%-+=_]+   { cout << "Found a STRING: " << yytext << endl; }
+\n                      { cout << "Found a ENDL: " << yytext << endl; };
 .                       ;
 %%
 int main(int, char**) {
   
   // open a file handle to a particular file:
-  FILE *myfile = fopen("sample-css-input.css", "r");
+  FILE *myfile = fopen("shortTest.html", "r");
   // make sure it's valid:
   if (!myfile) {
     cout << "Error reading file" << endl;

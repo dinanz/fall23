@@ -1,6 +1,7 @@
 %{
   #include <cstdio>
   #include <iostream>
+  #define YYDEBUG 1
   using namespace std;
 
   // Declare stuff from Flex that Bison needs to know about:
@@ -21,20 +22,21 @@
 
 %token <sval> DOCTYPE
 %token <sval> INDEPENDENT_TAG
-%token <sval> START_TAG
-%token <sval> END_TAG
-%token <sval> START_HTML
-%token <sval> END_HTML
-%token <sval> START_BODY
-%token <sval> END_BODY
-%token <sval> START_SCRIPT
-%token <sval> END_SCRIPT
+%token <sval> ATTRIBUTE
 %token <sval> OPEN_CURLY
 %token <sval> CLOSE_CURLY
 %token <sval> COMMA
 %token <sval> COLON
 %token <sval> SEMICOLON
 %token <sval> COMMENT
+%token <sval> START_HTML
+%token <sval> END_HTML
+%token <sval> START_BODY
+%token <sval> END_BODY
+%token <sval> START_SCRIPT
+%token <sval> END_SCRIPT
+%token <sval> START_TAG
+%token <sval> END_TAG
 %token <sval> SELECTOR1
 %token <sval> SELECTOR2
 %token <sval> SELECTOR3
@@ -53,6 +55,9 @@ s :
 
 html : 
     DOCTYPE START_HTML html_blocks START_BODY html_blocks END_BODY html_blocks END_HTML
+    | DOCTYPE START_HTML START_BODY html_blocks END_BODY html_blocks END_HTML
+    | DOCTYPE START_HTML START_BODY html_blocks END_BODY END_HTML
+    | DOCTYPE START_HTML html_blocks START_BODY html_blocks END_BODY END_HTML
     ;
 
 html_blocks : 
@@ -63,8 +68,16 @@ html_blocks :
 html_block:
     INDEPENDENT_TAG 
     | script 
-    | START_TAG html_blocks END_TAG 
+    | START_TAG inner_html END_TAG { if()}
     | START_TAG END_TAG 
+    ;
+  
+inner_html:
+    html_blocks
+    | html_blocks ignore
+    | ignore html_blocks
+    | ignore html_blocks ignore
+    | ignore
     ;
 
 
@@ -88,6 +101,11 @@ string_terminal :
     | OPEN_CURLY
     | CLOSE_CURLY
     | COMMENT
+    | SELECTOR1
+    | SELECTOR2
+    | SELECTOR3
+    | SELECTOR4
+    | SELECTOR5
     ;
 
 
@@ -125,26 +143,15 @@ selector :
     | SELECTOR3             { cout << "selector3" << endl; }
     | SELECTOR4             { cout << "selector4" << endl; }
     | SELECTOR5             { cout << "selector5" << endl; }
+    | STRING                { cout << "STRING" << endl; }
     ;
 
 attributes :
-    attribute attributes    { cout << "attribute attributes" << endl; }
-    | attribute             { cout << "attribute" << endl; }
+    ATTRIBUTE attributes    { cout << "attribute attributes" << endl; }
+    | ATTRIBUTE             { cout << "attribute" << endl; }
     ;
 
-attribute :
-    property COLON values SEMICOLON     { cout << "attribute" << endl; }
-    | COMMENT       { cout << "comment." << endl; }
-    ;
 
-property :
-    STRING          { cout << "property" << endl; }
-    ;
-
-values :
-    values STRING   { cout << "list of values." << endl; }
-    | STRING        { cout << "value" << endl; }
-    ;
   
 media_query:
     AT_MEDIA OPEN_CURLY css_blocks CLOSE_CURLY  { cout << "media query." << endl; }
@@ -162,7 +169,12 @@ media_query:
 
 
 int main (int, char**){
-  FILE *myfile = fopen("shortTest.css", "r");
+
+  #ifdef YYDEBUG
+    yydebug = 1;
+  #endif
+
+  FILE *myfile = fopen("sample-html-input.html", "r");
   if (!myfile) {
     cout << "Error reading file" << endl;
     return -1;
@@ -172,10 +184,12 @@ int main (int, char**){
   yyparse();
   cout << "Parse successful." << endl;
   
+  
+
 }
 
 
 void yyerror(const char *s){
-  cout << "Parse failed." << s << endl;
+  cout << "Parse failed: " << s << endl;
   exit(-1);
 }

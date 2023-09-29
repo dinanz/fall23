@@ -295,10 +295,10 @@ static yyconst short int yy_accept[104] =
         0,    0,    0,    0,    0,    0,    0,   24,    0,    0,
         0,    0,   11,    0,    0,    8,    0,    0,    0,    0,
         0,    0,    0,   21,    0,    0,    0,    0,   24,    0,
-       10,   12,    9,   23,    0,   22,    0,    0,    0,   20,
+       10,   12,    9,   23,    0,   22,    0,    0,    0,   14,
         0,    0,    0,   24,    0,    0,    0,    0,    0,    0,
-        0,   24,    0,    0,    0,    0,   16,   14,    0,   24,
-        0,   17,   15,    0,   18,    0,    0,   19,    7,    0,
+        0,   24,    0,    0,    0,    0,   17,   15,    0,   24,
+        0,   18,   16,    0,   19,    0,    0,   20,    7,    0,
 
         0,   13,    0
     } ;
@@ -346,18 +346,18 @@ static yyconst int yy_meta[47] =
 
 static yyconst short int yy_base[121] =
     {   0,
-        0,    0,  273,  378,  378,  378,    0,   42,   57,   72,
-      378,   39,    0,  257,  250,  378,   53,  220,  378,  378,
-        0,   96,  229,  120,  222,  144,   41,  234,  219,  219,
-        0,  205,   39,  172,  132,  127,  137,  134,  138,  137,
-        0,  136,  135,  152,   42,    0,  136,  140,   34,   39,
-       53,  199,  139,  378,    0,  123,  116,  112,  114,  117,
-      116,  115,    0,  134,  121,  378,   75,   54,   68,  378,
-       97,  103,  101,  100,  109,   76,   79,   81,  116,  115,
-       92,  100,  102,  105,  104,   71,  378,  378,   76,  114,
-       88,  378,  378,   78,    0,    0,   89,   92,    0,   88,
+        0,    0,  266,  378,  378,  378,    0,   42,   57,   72,
+      378,   39,    0,  256,  243,  378,   53,  219,  378,  378,
+        0,   96,  222,  120,  221,  144,   41,  233,  199,  218,
+        0,  149,   39,  172,  131,  126,  136,  133,  137,  136,
+        0,  135,  132,  151,   42,    0,  134,  139,   34,   39,
+       53,  199,  138,  378,    0,  121,  115,  106,  113,  116,
+      115,  114,    0,  133,  120,  378,   75,   54,   68,  378,
+       96,  100,  100,   99,  108,   76,   79,   81,  115,  114,
+       90,   99,   96,  104,  101,   71,  378,  378,   75,  109,
+       87,  378,  378,   78,    0,    0,   87,   88,    0,   87,
 
-       87,   80,  378,  241,  249,  257,  265,  271,  277,  285,
+       80,  378,  378,  241,  249,  257,  265,  271,  277,  285,
       290,  297,  308,  320,  327,   49,  337,  344,  354,  365
     } ;
 
@@ -374,7 +374,7 @@ static yyconst short int yy_def[121] =
        34,  104,  103,  116,  116,  116,  103,  103,   34,  104,
       103,  103,  103,  116,   34,  119,  103,  116,  119,  120,
 
-      120,  120,    0,  103,  103,  103,  103,  103,  103,  103,
+      120,  103,    0,  103,  103,  103,  103,  103,  103,  103,
       103,  103,  103,  103,  103,  103,  103,  103,  103,  103
     } ;
 
@@ -391,24 +391,24 @@ static yyconst short int yy_nxt[425] =
        51,   68,   27,   35,   69,   66,   28,   36,   66,   27,
        21,   77,   66,   66,   37,   66,   66,  102,   66,   29,
 
-       21,   21,   21,   21,  102,  102,   23,   76,   78,   66,
-       94,  100,   97,   23,   21,   85,   86,   96,   95,   84,
-       98,   93,   92,   39,   21,   21,   21,   21,   91,   90,
-       25,   89,   88,   87,   83,   82,   81,   25,   21,   80,
-       79,   75,   45,   62,   61,   61,   74,   39,   21,   21,
-       21,   21,   73,   72,   27,   71,   70,   66,   28,   65,
-       45,   27,   21,   43,   43,   62,   61,   59,   58,   57,
-       56,   29,   52,   52,   52,   52,   52,   52,   52,   52,
+       21,   21,   21,   21,  102,   66,   23,   76,   78,  100,
+       94,   97,   96,   23,   21,   85,   86,   95,   93,   84,
+       98,   92,   91,   39,   21,   21,   21,   21,   90,   89,
+       25,   88,   87,   83,   82,   81,   80,   25,   21,   79,
+       75,   45,   62,   61,   61,   74,   73,   39,   21,   21,
+       21,   21,   72,   71,   27,   70,   66,   65,   28,   45,
+       43,   27,   21,   43,   62,   61,   59,   58,   57,   56,
+       47,   29,   52,   52,   52,   52,   52,   52,   52,   52,
        52,   52,   52,   52,   53,   52,   52,   52,   52,   54,
        52,   55,   55,   55,   55,   55,   55,   55,   55,   52,
 
        52,   55,   55,   55,   55,   55,   55,   55,   55,   55,
        55,   55,   55,   55,   55,   55,   52,   52,   52,   52,
-       52,   52,   52,   52,   52,   52,   47,   45,   52,   52,
+       52,   52,   52,   52,   52,   52,   45,   43,   52,   52,
        52,   52,   52,   52,   52,   52,   52,   52,   52,   52,
-       52,   52,   52,   21,   21,   21,   21,   43,   41,   39,
-       21,   22,   22,   22,   22,   22,   39,   38,   22,   24,
-       24,   24,   24,   24,   31,   30,   24,   26,   26,   26,
+       52,   52,   52,   21,   21,   21,   21,   41,   39,   39,
+       21,   22,   22,   22,   22,   22,   38,   31,   22,   24,
+       24,   24,   24,   24,   30,  103,   24,   26,   26,   26,
        26,   26,  103,   26,   26,   26,   27,   27,  103,   27,
        27,   27,   23,   23,  103,  103,   23,   34,  103,  103,
       103,  103,   34,  103,   34,   25,   25,  103,  103,   25,
@@ -419,7 +419,7 @@ static yyconst short int yy_nxt[425] =
        44,   44,   46,   46,  103,  103,   46,   60,  103,   60,
        60,   60,   60,   60,   60,   60,   60,   60,   60,   63,
        63,  103,  103,   63,   99,   99,   99,   99,   99,   99,
-       99,   99,   99,   99,   99,  101,  103,  101,  101,  101,
+       99,   99,   99,   99,   99,  101,  101,  101,  101,  101,
       101,  101,  101,  101,  101,  101,  101,    3,  103,  103,
       103,  103,  103,  103,  103,  103,  103,  103,  103,  103,
       103,  103,  103,  103,  103,  103,  103,  103,  103,  103,
@@ -440,27 +440,27 @@ static yyconst short int yy_chk[425] =
         8,    9,    9,    9,    9,   17,   12,    9,   27,   33,
        51,   68,   49,   33,    9,    9,   10,   10,   10,   10,
        33,   50,   10,   17,   51,   69,   10,   17,   86,   10,
-       10,   68,   67,   76,   17,   94,   77,  102,   78,   10,
+       10,   68,   67,   76,   17,   94,   77,  101,   78,   10,
 
-       22,   22,   22,   22,  101,  100,   22,   67,   69,   98,
-       86,   97,   91,   22,   22,   77,   78,   90,   89,   76,
-       94,   85,   84,   22,   24,   24,   24,   24,   83,   82,
-       24,   81,   80,   79,   75,   74,   73,   24,   24,   72,
-       71,   65,   64,   62,   61,   60,   59,   24,   26,   26,
-       26,   26,   58,   57,   26,   56,   53,   48,   26,   47,
-       44,   26,   26,   43,   42,   40,   39,   38,   37,   36,
-       35,   26,   34,   34,   34,   34,   34,   34,   34,   34,
+       22,   22,   22,   22,  100,   98,   22,   67,   69,   97,
+       86,   91,   90,   22,   22,   77,   78,   89,   85,   76,
+       94,   84,   83,   22,   24,   24,   24,   24,   82,   81,
+       24,   80,   79,   75,   74,   73,   72,   24,   24,   71,
+       65,   64,   62,   61,   60,   59,   58,   24,   26,   26,
+       26,   26,   57,   56,   26,   53,   48,   47,   26,   44,
+       43,   26,   26,   42,   40,   39,   38,   37,   36,   35,
+       32,   26,   34,   34,   34,   34,   34,   34,   34,   34,
        34,   34,   34,   34,   34,   34,   34,   34,   34,   34,
        34,   34,   34,   34,   34,   34,   34,   34,   34,   34,
 
        34,   34,   34,   34,   34,   34,   34,   34,   34,   34,
        34,   34,   34,   34,   34,   34,   34,   34,   52,   52,
-       52,   52,   52,   52,   52,   52,   32,   30,   52,   52,
+       52,   52,   52,   52,   52,   52,   30,   29,   52,   52,
        52,   52,   52,   52,   52,   52,   52,   52,   52,   52,
-       52,   52,   52,  104,  104,  104,  104,   29,   28,   25,
-      104,  105,  105,  105,  105,  105,   23,   18,  105,  106,
-      106,  106,  106,  106,   15,   14,  106,  107,  107,  107,
-      107,  107,    3,  107,  107,  107,  108,  108,    0,  108,
+       52,   52,   52,  104,  104,  104,  104,   28,   25,   23,
+      104,  105,  105,  105,  105,  105,   18,   15,  105,  106,
+      106,  106,  106,  106,   14,    3,  106,  107,  107,  107,
+      107,  107,    0,  107,  107,  107,  108,  108,    0,  108,
       108,  108,  109,  109,    0,    0,  109,  110,    0,    0,
         0,    0,  110,    0,  110,  111,  111,    0,    0,  111,
 
@@ -470,7 +470,7 @@ static yyconst short int yy_chk[425] =
       114,  114,  115,  115,    0,    0,  115,  117,    0,  117,
       117,  117,  117,  117,  117,  117,  117,  117,  117,  118,
       118,    0,    0,  118,  119,  119,  119,  119,  119,  119,
-      119,  119,  119,  119,  119,  120,    0,  120,  120,  120,
+      119,  119,  119,  119,  119,  120,  120,  120,  120,  120,
       120,  120,  120,  120,  120,  120,  120,  103,  103,  103,
       103,  103,  103,  103,  103,  103,  103,  103,  103,  103,
       103,  103,  103,  103,  103,  103,  103,  103,  103,  103,
@@ -491,9 +491,9 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 ".\\dz1371.csshtml.l"
+#line 1 ".\\dz1371.csshtml copy.l"
 #define INITIAL 0
-#line 2 ".\\dz1371.csshtml.l"
+#line 2 ".\\dz1371.csshtml copy.l"
   #include <iostream>
   using namespace std;
   extern int yylex();
@@ -648,7 +648,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 7 ".\\dz1371.csshtml.l"
+#line 7 ".\\dz1371.csshtml copy.l"
 
 #line 654 "lex.yy.c"
 
@@ -735,137 +735,137 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 8 ".\\dz1371.csshtml.l"
+#line 8 ".\\dz1371.csshtml copy.l"
 ;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 ".\\dz1371.csshtml.l"
-{ cout << "Found a COMMA: " << yytext << endl; return COMMA;}
+#line 10 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a COMMA: " << yytext << endl; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 11 ".\\dz1371.csshtml.l"
-{ cout << "Found a COLON: " << yytext << endl; return COLON;}
+#line 11 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a COLON: " << yytext << endl; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 12 ".\\dz1371.csshtml.l"
-{ cout << "Found a SEMICOLON: " << yytext << endl; return SEMICOLON;}
+#line 12 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a SEMICOLON: " << yytext << endl; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 13 ".\\dz1371.csshtml.l"
-{ cout << "Found a OPEN_CURLY: " << yytext << endl; return OPEN_CURLY;}
+#line 13 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a OPEN_CURLY: " << yytext << endl; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 14 ".\\dz1371.csshtml.l"
-{ cout << "Found a CLOSE_CURLY: " << yytext << endl; return CLOSE_CURLY;}
+#line 14 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a CLOSE_CURLY: " << yytext << endl; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 16 ".\\dz1371.csshtml.l"
-{ cout << "Found a AT_MEDIA: " << yytext << endl; return AT_MEDIA;}
+#line 16 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a AT_MEDIA: " << yytext << endl; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 18 ".\\dz1371.csshtml.l"
-{ cout << "Found a SELECTOR1: " << yytext << endl; return SELECTOR1;}
+#line 18 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a SELECTOR1: " << yytext << endl; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 19 ".\\dz1371.csshtml.l"
-{ cout << "Found a SELECTOR2: " << yytext << endl; return SELECTOR2;}
+#line 19 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a SELECTOR2: " << yytext << endl;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 20 ".\\dz1371.csshtml.l"
-{ cout << "Found a SELECTOR3: " << yytext << endl; return SELECTOR3;}
+#line 20 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a SELECTOR3: " << yytext << endl; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 21 ".\\dz1371.csshtml.l"
-{ cout << "Found a SELECTOR4: " << yytext << endl; return SELECTOR4;}
+#line 21 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a SELECTOR4: " << yytext << endl; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 22 ".\\dz1371.csshtml.l"
-{ cout << "Found a SELECTOR5: " << yytext << endl; return SELECTOR5;}
+#line 22 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a SELECTOR5: " << yytext << endl; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 24 ".\\dz1371.csshtml.l"
-{ cout << "Found a DOCTYPE: " << yytext << endl; return DOCTYPE;}
+#line 24 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a DOCTYPE: " << yytext << endl; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 25 ".\\dz1371.csshtml.l"
-{ cout << "Found a START_HTML: " << yytext << endl;  return START_HTML;}
+#line 25 ".\\dz1371.csshtml copy.l"
+{ cout << "Found an INDEPENDENT_TAG: " << yytext << endl; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 26 ".\\dz1371.csshtml.l"
-{ cout << "Found a END_HTML: " << yytext << endl; return END_HTML;}
+#line 26 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a START_HTML: " << yytext << endl; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 27 ".\\dz1371.csshtml.l"
-{ cout << "Found a START_BODY: " << yytext << endl; return START_BODY;}
+#line 27 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a END_HTML: " << yytext << endl; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 28 ".\\dz1371.csshtml.l"
-{ cout << "Found a END_BODY: " << yytext << endl; return END_BODY;}
+#line 28 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a START_BODY: " << yytext << endl; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 29 ".\\dz1371.csshtml.l"
-{ cout << "Found a START_SCRIPT: " << yytext << endl; return START_SCRIPT;}
+#line 29 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a END_BODY: " << yytext << endl; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 30 ".\\dz1371.csshtml.l"
-{ cout << "Found a END_SCRIPT: " << yytext << endl; return END_SCRIPT;}
+#line 30 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a START_SCRIPT: " << yytext << endl; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 31 ".\\dz1371.csshtml.l"
-{ cout << "Found an INDEPENDENT_TAG: " << yytext << endl; return INDEPENDENT_TAG;}
+#line 31 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a END_SCRIPT: " << yytext << endl; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 32 ".\\dz1371.csshtml.l"
-{ cout << "Found a START_TAG: " << yytext << endl; return START_TAG;}
+#line 32 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a START_TAG: " << yytext << endl; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 33 ".\\dz1371.csshtml.l"
-{ cout << "Found a END_TAG: " << yytext << endl; return END_TAG;}
+#line 33 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a END_TAG: " << yytext << endl;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 36 ".\\dz1371.csshtml.l"
-{ cout << "Found a COMMENT: " << yytext << endl; return COMMENT;}
+#line 36 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a COMMENT: " << yytext << endl;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 38 ".\\dz1371.csshtml.l"
-{ cout << "Found a STRING: " << yytext << endl; return STRING;}
+#line 38 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a STRING: " << yytext << endl; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 39 ".\\dz1371.csshtml.l"
-{ cout << "Found a ENDL: " << yytext << endl; return ENDL;};
+#line 39 ".\\dz1371.csshtml copy.l"
+{ cout << "Found a ENDL: " << yytext << endl; };
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 40 ".\\dz1371.csshtml.l"
+#line 40 ".\\dz1371.csshtml copy.l"
 ;
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 41 ".\\dz1371.csshtml.l"
+#line 41 ".\\dz1371.csshtml copy.l"
 ECHO;
 	YY_BREAK
 #line 872 "lex.yy.c"
@@ -1754,12 +1754,12 @@ int main()
 	return 0;
 	}
 #endif
-#line 41 ".\\dz1371.csshtml.l"
+#line 41 ".\\dz1371.csshtml copy.l"
 
 int main(int, char**) {
   
   // open a file handle to a particular file:
-  FILE *myfile = fopen("sample-css-input.css", "r");
+  FILE *myfile = fopen("shortTest.html", "r");
   // make sure it's valid:
   if (!myfile) {
     cout << "Error reading file" << endl;
