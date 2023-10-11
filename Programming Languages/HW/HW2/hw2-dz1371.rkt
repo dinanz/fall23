@@ -8,6 +8,8 @@ Question 1 DONE
 ))
 
 
+
+
 #|
 Question 2 DONE
 |#
@@ -18,25 +20,34 @@ Question 2 DONE
       (chain_odd (cdr funcs) ( (car funcs) v)))) ; else apply current func to the rest of chain
 
 
-(define (inc n) (+ n 1))
-(define (dec n) (- n 1))
-(define (plus2 n) (+ n 2))
-(define (minus2 n) (- n 2))
-(define (ident s) s)
 
 
 #|
 Question 3
-|#
+
 (define (zip_helper l1 l2 output)
   (cond
     ((null? l1) output) ; if input lists null return null
     ((equal? output '())
-           (zip_helper (cdr l1) (cdr l2) (list (car l1) (car l2))))
+           (zip_helper (cdr l1) (cdr l2)
+                  (cons (car l1)
+                        (cons (car l2) '()))))
     (else  (zip_helper (cdr l1)
                   (cdr l2)
-                  (list output (list (car l1) (car l2)))))
+                  (cons output
+                        (list
+                              (cons (car l1)
+                                    (cons (car l2) '()))))))
       ))
+
+|#
+
+(define (zip_helper l1 l2 output)
+  (if
+    (null? l1) output ; if input lists null return null
+     (zip_helper (cdr l1) (cdr l2) (append output (list(list (car l1) (car l2))))))
+)
+
 
 (define (zip l1 l2) (zip_helper l1 l2 '()))
 (zip '(1 2 3) '(4 5 6))
@@ -48,15 +59,24 @@ zip (3) (5) ((1,2) (
 |#
 
 
-#|
-Question 4
 
-(define (unzip_helper l1 l2 out1 out2)
-  (if (null? l1) (list out1 out2) ; if input lists null return null
-      (cons ))) ; else concat top 2 elements to remaining zip
+USE TAIL RECURSION OF TATIL RECURSION
+E.G. UNZIP(M UNZIP())
 
-(define (unzip l1 l2) (unzip_helper l1 l3 '() '()))
+
+#|Question 4
+
+zipped: ((1 4) (2 5) (3 6))
+unzipped: (() ())
+
+((2 5) (3 6))
+((1) (4))
+
+((3 6))
+((1 2) (4 5))
 |#
+
+
 (define (unzip_help zipped unzipped)
   (if (null? zipped) unzipped      ; if null return unzipped list
       (unzip_help (cdr zipped)
@@ -64,13 +84,54 @@ Question 4
                      (list (car unzipped)  (car (car zipped)))
                      (list (car (cdr unzipped))  (car (cdr (car zipped)))))
              )))
-(define (unzip zipped) (unzip_help zipped '(() ()) ) )             
+
+#|
+(define zipped '((1 4) (2 5) (3 6)))
+(define unzipped '('() '()))
+
+
+(define (unzip_help zipped unzipped)
+  (cond
+    ((null? zipped) unzipped)
+    ((equal? unzipped '('() '()))
+     (unzip_help (cdr zipped)
+          (list
+           (list (car unzipped) (car (car zipped)))
+           (list (car (cdr unzipped)) (cdr (car zipped)))
+      )))
+    (else 
+      (unzip_help
+             (cdr zipped)     ; zipped  ((1 4) (2 5) (3 6))
+             ; unzipped (() ())
+             (list
+              (append (car unzipped) (list (car (car zipped))))
+              (append (car (cdr unzipped)) (cdr (car zipped)))))
+      
+    )
+  )
+)
+|#
+
+
+(define (unzip zipped) (unzip_help zipped '('() '()) ) )             
 
 (unzip '((1 4) (2 5) (3 6)))
 
 
+#|
+Question 5
+|#
 
+#|
+(define (removeElement li res x)
+  (cond
+    ((null? li) res)
+    ((equal? (car li) x) (removeElement (cdr li) res x) )
+    
 
+(define (cancellist l1 l2)
+
+|#
 
 
 
@@ -87,12 +148,15 @@ Question 6 DONE
 
 
 #|
-Question 7
+Question 7 DONE
 |#
 (define (interleave_help l1 l2 res)
-  (if (or (null? l1) (null? l2)) res
-      (interleave_help (cdr l1) (cdr l2)
-                       (cons res (cons (car l1) (cons (car l2) '())))
+  (cond
+    ((and (null? l1) (null? l2)) res)
+    ((null? l1) (append res l2))
+    ((null? l2) (append res l1))
+     (else (interleave_help (cdr l1) (cdr l2)
+                       (append res (cons (car l1) (cons (car l2) '()))))
 )))
 ; USE LET
 
@@ -100,6 +164,11 @@ Question 7
 (define (interleave_outer l1 l2) (interleave_help l1 (reverse l2) '()))
 
 (interleave_outer '(1 2 3) '(a b c))
+(interleave_outer '(1 2 3) '(a b c d e f))
+(interleave_outer '(1 2 3 4 5 6) '(a b c))
+
+
+
 
 
 

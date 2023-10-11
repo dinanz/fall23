@@ -1,0 +1,6 @@
+C:/Users/DZ/Desktop/NYU/fall23/Computer Graphics/HW/Assignment 1/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/DZ/Desktop/NYU/fall23/Computer Graphics/HW/Assignment 1/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/DZ/Desktop/NYU/fall23/Computer Graphics/HW/Assignment 1/build/src/hull/CMakeFiles/convex_hull.dir
+C:/Users/DZ/Desktop/NYU/fall23/Computer Graphics/HW/Assignment 1/build/src/hull/CMakeFiles/ALL_BUILD.dir
+C:/Users/DZ/Desktop/NYU/fall23/Computer Graphics/HW/Assignment 1/build/src/inside/CMakeFiles/point_in_polygon.dir
+C:/Users/DZ/Desktop/NYU/fall23/Computer Graphics/HW/Assignment 1/build/src/inside/CMakeFiles/ALL_BUILD.dir
